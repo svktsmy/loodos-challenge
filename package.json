@@ -5,11 +5,14 @@
   },
   "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/drawers/MiniDrawer.js",
   "dependencies": {
-    "react-dom": "latest",
-    "react": "latest",
-    "clsx": "latest",
+    "@devexpress/dx-react-chart": "^2.5.1",
+    "@devexpress/dx-react-chart-material-ui": "^2.5.1",
+    "@devexpress/dx-react-core": "^2.5.1",
+    "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
-    "@material-ui/core": "latest"
+    "clsx": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "name": "material-demo",
   "version": "0.0.0",

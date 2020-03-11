@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     })
   },
   menuButton: {
-    marginRight: 36
+    marginRight: 12
   },
   hide: {
     display: "none"
@@ -66,7 +66,10 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    [theme.breakpoints.down("xs")]: {
+      padding: 0
+    }
   },
   contentContainer: {
     minHeight: `calc(100vh - ${56 + theme.spacing(5)}px)`
@@ -75,8 +78,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Container(props) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const isSmall = useMediaQuery("(max-width:800px)");
+  const isSmall = useMediaQuery("(max-width:600px)");
+  const [open, setOpen] = React.useState(false);
   const toogleDrawer = () => {
     setOpen(!open);
   };
