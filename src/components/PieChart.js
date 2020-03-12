@@ -31,7 +31,7 @@ export default function PieChart({ title }) {
   return (
     <ChartContainer title={title} onRefresh={() => setData(generateData())}>
       <RePieChart>
-        <Pie isAnimationActive={false} data={data} dataKey="value" nameKey="name">
+        <Pie data={data} dataKey="value" nameKey="name">
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}

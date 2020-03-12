@@ -45,15 +45,16 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: "nowrap"
+    whiteSpace: "nowrap",
+    
   },
   drawerOpen: {
     width: drawerWidth,
     overflowX: "hidden",
-    //transition: theme.transitions.create("width")
+    transition: theme.transitions.create("width")
   },
   drawerClose: {
-    //transition: theme.transitions.create("width"),
+    transition: theme.transitions.create("width"),
     width: theme.spacing(7) + 1,
     overflowX: "hidden"
   },

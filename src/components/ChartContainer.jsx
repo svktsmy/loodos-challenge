@@ -25,12 +25,12 @@ const useStyles = makeStyles(theme => ({
 export default function ChartContainer({ title, children, onRefresh }) {
   const classes = useStyles();
   const theme = useTheme();
-  //useInterval(onRefresh, 3000);
+  useInterval(onRefresh, 3000);
   const height = useMediaQuery(theme.breakpoints.up("sm")) ? 300 : 200;
   return (
     <Paper className={classes.root} variant="outlined" square>
       <Typography variant="h5">{title}</Typography>
-      <ResponsiveContainer width={"99%"} height={height}>
+      <ResponsiveContainer height={height}>
         {children}
       </ResponsiveContainer>
       <Divider className={classes.divider}></Divider>

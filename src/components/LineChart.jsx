@@ -44,7 +44,7 @@ export default function LineChart({ title }) {
 
   return (
     <ChartContainer title={title} onRefresh={() => setData(generateData())}>
-      <AreaChart isAnimationActive={false} data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
+      <AreaChart data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
         <XAxis dataKey="name" />
         <YAxis />
         <CartesianGrid strokeDasharray="4 4" />
