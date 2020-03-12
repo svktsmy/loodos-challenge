@@ -37,7 +37,7 @@ export default function ChartContainer({ title, children, onRefresh }) {
   return (
     <Paper className={classes.root} variant="outlined" square>
       <Typography variant="h5">{title}</Typography>
-      <ResponsiveContainer height={height}>{children}</ResponsiveContainer>
+      <ResponsiveContainer height={height} width={"98%"}>{children}</ResponsiveContainer>
       <Divider className={classes.divider}></Divider>
       <div className={classes.option}>
         <Menu data={delay} onSelect={delay => setDelay(delay)}></Menu>

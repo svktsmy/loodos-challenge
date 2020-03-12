@@ -44,12 +44,12 @@ export default function LineChart({ title }) {
 
   return (
     <ChartContainer title={title} onRefresh={() => setData(generateData())}>
-      <AreaChart data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
+      <AreaChart  data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
         <XAxis dataKey="name" />
         <YAxis />
         <CartesianGrid strokeDasharray="4 4" />
         <Tooltip />
-        <Area type="monotone" dataKey="uv" stroke={orange[400]} fill={orange[400]} />
+        <Area isAnimationActive={false} type="basis" dataKey="uv" stroke={orange[400]} fill={orange[400]} />
       </AreaChart>
     </ChartContainer>
   );
