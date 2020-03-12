@@ -20,11 +20,13 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Paper from "@material-ui/core/Paper";
+import Avatar from "./Avatar";
 const drawerWidth = 240;
 //const headerHeight = 60;
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    overflowX: "hidden",
   },
   appBar: {
     //height: headerHeight,
@@ -48,31 +50,30 @@ const useStyles = makeStyles(theme => ({
   drawerOpen: {
     width: drawerWidth,
     overflowX: "hidden",
-    transition: theme.transitions.create("width", {
-      easing: "cubic-bezier(.84,.12,.13,.86)",
-      duration: 340
-    })
+    //transition: theme.transitions.create("width")
   },
   drawerClose: {
-    transition: theme.transitions.create("width", {
-      easing: "cubic-bezier(.84,.12,.13,.86)",
-      duration: 340
-    }),
+    //transition: theme.transitions.create("width"),
     width: theme.spacing(7) + 1,
     overflowX: "hidden"
   },
   toolbar: {
     ...theme.mixins.toolbar
   },
+  spacer: {
+    flex: 1
+  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(2),
+
     [theme.breakpoints.down("xs")]: {
       padding: 0
     }
   },
   contentContainer: {
-    minHeight: `calc(100vh - ${56 + theme.spacing(5)}px)`
+    padding: theme.spacing(2)
+    //minHeight: `calc(100vh - ${56 + theme.spacing(5)}px)`
   }
 }));
 
@@ -80,6 +81,7 @@ export default function Container(props) {
   const classes = useStyles();
   const isSmall = useMediaQuery("(max-width:600px)");
   const [open, setOpen] = React.useState(false);
+
   const toogleDrawer = () => {
     setOpen(!open);
   };
@@ -138,9 +140,13 @@ export default function Container(props) {
             </ListItem>
           ))}
         </List>
+        <div className={classes.spacer}></div>
+        <Divider />
+        <Avatar open={open}></Avatar>
       </Drawer>
       <div className={classes.content}>
         <div className={classes.toolbar} />
+
         <Paper className={classes.contentContainer} variant="outlined" square>
           {props.children}
         </Paper>

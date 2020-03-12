@@ -12,7 +12,8 @@
     "@material-ui/icons": "latest",
     "clsx": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "recharts": "^2.0.0-beta.2"
   },
   "name": "material-demo",
   "version": "0.0.0",

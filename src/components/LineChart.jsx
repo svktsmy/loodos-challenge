@@ -1,47 +1,56 @@
-import { ArgumentAxis, Chart, SplineSeries, ValueAxis } from "@devexpress/dx-react-chart-material-ui";
-
+import { orange } from "@material-ui/core/colors";
 import React, { useState } from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import useInterval from "../utils/useInterval";
+import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 import getRandomInt from "../utils/getRandomInt";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import { useMediaQuery } from "@material-ui/core";
-const useStyles = makeStyles(theme => ({
-  root: {
-    flex: 1,
-    padding: theme.spacing(2),
-    margin: theme.spacing(2),
-    alignItems: "center",
-    justifyContent: "center"
-  }
-}));
-const generateData = (start, end, step) => {
-  const data = [];
-  for (let i = start; i < end; i += step) {
-    data.push({ value: getRandomInt(10) / i, argument: i });
-  }
+import ChartContainer from "./ChartContainer";
+
+const generateData = () => {
+  const data = [
+    {
+      name: "Page A",
+      uv: getRandomInt(4000)
+    },
+    {
+      name: "Page B",
+      uv: getRandomInt(4000)
+    },
+    {
+      name: "Page C",
+      uv: getRandomInt(4000)
+    },
+    {
+      name: "Page D",
+      uv: getRandomInt(4000)
+    },
+    {
+      name: "Page E",
+      uv: getRandomInt(4000)
+    },
+    {
+      name: "Page F",
+      uv: getRandomInt(4000)
+    },
+    {
+      name: "Page G",
+      uv: getRandomInt(4000)
+    }
+  ];
 
   return data;
 };
 
-export default function LineChart() {
-  const classes = useStyles();
-  let [delay, setDelay] = useState(3000);
-  const isSmall = useMediaQuery("(max-width:600px)");
-  let [data, setData] = useState(generateData(1, 4, 0.5));
+export default function LineChart({ title }) {
+  let [data, setData] = useState(generateData());
 
-  useInterval(() => {
-    setData(generateData(1, 4, 0.5));
-  }, delay);
   return (
-    <Paper className={classes.root} variant="outlined" square>
-      <Typography variant="h5">Responsive h5</Typography>
-      <Chart data={data} width={"100%"} height={250}>
-        <ArgumentAxis showGrid />
-        <ValueAxis />
-        <SplineSeries valueField="value" argumentField="argument" />
-      </Chart>
-    </Paper>
+    <ChartContainer title={title} onRefresh={() => setData(generateData())}>
+      <AreaChart isAnimationActive={false} data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <CartesianGrid strokeDasharray="4 4" />
+        <Tooltip />
+        <Area type="monotone" dataKey="uv" stroke={orange[400]} fill={orange[400]} />
+      </AreaChart>
+    </ChartContainer>
   );
 }
