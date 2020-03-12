@@ -5,12 +5,15 @@
   },
   "description": "",
   "dependencies": {
+    "@date-io/date-fns": "1.x",
     "@devexpress/dx-react-chart": "^2.5.1",
     "@devexpress/dx-react-chart-material-ui": "^2.5.1",
     "@devexpress/dx-react-core": "^2.5.1",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
+    "@material-ui/pickers": "^3.2.10",
     "clsx": "latest",
+    "date-fns": "^2.10.0",
     "react": "latest",
     "react-dom": "latest",
     "recharts": "^2.0.0-beta.2"

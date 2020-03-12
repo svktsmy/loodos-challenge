@@ -9,12 +9,13 @@ import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import Menu from "./Menu";
+import DateRange from "./DateRange";
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "block",
     //flexDirection: "column",
-    padding: theme.spacing(2),
+    padding: theme.spacing(2)
 
     //alignItems: "center",
     //justifyContent: "center"
@@ -48,6 +49,7 @@ export default function ChartContainer({ title, children, onRefresh }) {
       </ResponsiveContainer>
       <Divider className={classes.divider}></Divider>
       <div className={classes.option}>
+        <DateRange></DateRange>
         <Menu data={delay} onSelect={delay => setDelay(delay)}></Menu>
         <IconButton color="primary" aria-label="upload picture" component="span" onClick={onRefresh}>
           <RefreshIcon />
