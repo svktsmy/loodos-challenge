@@ -20,10 +20,10 @@ import clsx from "clsx";
 import React from "react";
 import Avatar from "./Avatar";
 const drawerWidth = 240;
-//const headerHeight = 60;
+
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
+    display: "block",
     overflowX: "hidden"
   },
   appBar: {
@@ -59,14 +59,29 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(2),
+    marginLeft: theme.spacing(7) + 1,
 
-    [theme.breakpoints.down("xs")]: {
-      padding: 0
+    [theme.breakpoints.down("sm")]: {
+      padding: 0,
+      marginLeft: 0
+    }
+  },
+  contentOpen: {
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create("margin"),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0
+    }
+  },
+  contentClose: {
+    transition: theme.transitions.create("margin"),
+    marginLeft: theme.spacing(7) + 1,
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0
     }
   },
   contentContainer: {
     padding: theme.spacing(2)
-    //minHeight: `calc(100vh - ${56 + theme.spacing(5)}px)`
   }
 }));
 
@@ -138,7 +153,12 @@ export default function Container(props) {
         <Divider />
         <Avatar open={open}></Avatar>
       </Drawer>
-      <div className={classes.content}>
+      <div
+        className={clsx(classes.content, {
+          [classes.contentOpen]: open,
+          [classes.contentClose]: !open
+        })}
+      >
         <div className={classes.toolbar} />
 
         <Paper className={classes.contentContainer} variant="outlined" square>

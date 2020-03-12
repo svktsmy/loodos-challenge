@@ -12,12 +12,12 @@ import Menu from "./Menu";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    flexDirection: "column",
+    display: "block",
+    //flexDirection: "column",
     padding: theme.spacing(2),
 
     //alignItems: "center",
-    justifyContent: "center"
+    //justifyContent: "center"
   },
   divider: {
     margin: theme.spacing(1, 0)
@@ -43,7 +43,7 @@ export default function ChartContainer({ title, children, onRefresh }) {
   return (
     <Paper className={classes.root} variant="outlined" square>
       <Typography variant="h5">{title}</Typography>
-      <ResponsiveContainer className={classes.x} width="99%" aspect={1.7} debounce={1}>
+      <ResponsiveContainer className={classes.x} width="99%" aspect={1.7}>
         {children}
       </ResponsiveContainer>
       <Divider className={classes.divider}></Divider>
