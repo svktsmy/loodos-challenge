@@ -26,15 +26,10 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    overflowX: "hidden",
+    overflowX: "hidden"
   },
   appBar: {
-    //height: headerHeight,
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.easeInOut,
-      duration: theme.transitions.duration.leavingScreen
-    })
+    zIndex: theme.zIndex.drawer + 1
   },
   menuButton: {
     marginRight: 12
@@ -45,16 +40,15 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: "nowrap",
-    
+    whiteSpace: "nowrap"
   },
   drawerOpen: {
     width: drawerWidth,
-    overflowX: "hidden",
-    transition: theme.transitions.create("width")
+    overflowX: "hidden"
+    //transition: theme.transitions.create("width")
   },
   drawerClose: {
-    transition: theme.transitions.create("width"),
+    //transition: theme.transitions.create("width"),
     width: theme.spacing(7) + 1,
     overflowX: "hidden"
   },

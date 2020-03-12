@@ -1,5 +1,3 @@
-//import { ArgumentAxis, Chart, SplineSeries, ValueAxis } from "@devexpress/dx-react-chart-material-ui";
-
 import { indigo, orange, red, teal } from "@material-ui/core/colors";
 import React, { useState } from "react";
 import { Cell, Legend, Pie, PieChart as RePieChart, Tooltip } from "recharts";

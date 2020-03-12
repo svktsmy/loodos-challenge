@@ -1,9 +1,9 @@
 {
-  "title": "Material demo",
+  "title": "Lodos",
   "devDependencies": {
     "react-scripts": "latest"
   },
-  "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/drawers/MiniDrawer.js",
+  "description": "",
   "dependencies": {
     "@devexpress/dx-react-chart": "^2.5.1",
     "@devexpress/dx-react-chart-material-ui": "^2.5.1",

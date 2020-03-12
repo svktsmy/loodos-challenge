@@ -8,15 +8,12 @@ import clsx from "clsx";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    
     margin: theme.spacing(1, 1),
-
-    alignItems: "center"
+    alignItems: "center",
     //transition: theme.transitions.create("margin")
   },
   rootOpen: {
-    margin: theme.spacing(3, 3),
-   
+    margin: theme.spacing(3, 3)
   },
   orange: {
     color: theme.palette.getContrastText(deepOrange[500]),

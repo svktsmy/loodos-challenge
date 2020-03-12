@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import Grid from "@material-ui/core/Grid";
+import React from "react";
 import Container from "./components/Container";
-import Paper from "@material-ui/core/Paper";
-import { Chart, ArgumentAxis, ValueAxis, SplineSeries } from "@devexpress/dx-react-chart-material-ui";
-import { makeStyles } from "@material-ui/core/styles";
-import useInterval from "./utils/useInterval";
 import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
-import Grid from "@material-ui/core/Grid";
 
 const data = [
   { type: "line", title: "Q1 Sales" },
@@ -19,13 +15,7 @@ const data = [
   { type: "pie", title: "Sales" }
 ];
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    margin: theme.spacing(1)
-  }
-}));
 export default function App() {
-  const classes = useStyles();
   return (
     <Container>
       <Grid container spacing={2}>
