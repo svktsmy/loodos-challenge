@@ -12,9 +12,11 @@ import Menu from "./Menu";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flex: 1,
+    display: "flex",
+    flexDirection: "column",
     padding: theme.spacing(2),
-    alignItems: "center",
+
+    //alignItems: "center",
     justifyContent: "center"
   },
   divider: {
@@ -25,6 +27,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end"
+  },
+  x: {
+    flex: 1
   }
 }));
 
@@ -34,10 +39,13 @@ export default function ChartContainer({ title, children, onRefresh }) {
   let [delay, setDelay] = useState(5000);
   useInterval(onRefresh, delay);
   const height = useMediaQuery(theme.breakpoints.up("sm")) ? 300 : 200;
+  const width = useMediaQuery(theme.breakpoints.up("sm")) ? 650 : 400;
   return (
     <Paper className={classes.root} variant="outlined" square>
       <Typography variant="h5">{title}</Typography>
-      <ResponsiveContainer height={height} width={"98%"}>{children}</ResponsiveContainer>
+      <ResponsiveContainer className={classes.x} width="99%" aspect={1.7} debounce={1}>
+        {children}
+      </ResponsiveContainer>
       <Divider className={classes.divider}></Divider>
       <div className={classes.option}>
         <Menu data={delay} onSelect={delay => setDelay(delay)}></Menu>

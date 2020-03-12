@@ -1,25 +1,23 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import MenuOpenIcon from "@material-ui/icons/MenuOpen";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Paper from "@material-ui/core/Paper";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import MailIcon from "@material-ui/icons/Mail";
+import MenuIcon from "@material-ui/icons/Menu";
+import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import clsx from "clsx";
+import React from "react";
 import Avatar from "./Avatar";
 const drawerWidth = 240;
 //const headerHeight = 60;
@@ -44,11 +42,11 @@ const useStyles = makeStyles(theme => ({
   },
   drawerOpen: {
     width: drawerWidth,
-    overflowX: "hidden"
-    //transition: theme.transitions.create("width")
+    overflowX: "hidden",
+    transition: theme.transitions.create("width")
   },
   drawerClose: {
-    //transition: theme.transitions.create("width"),
+    transition: theme.transitions.create("width"),
     width: theme.spacing(7) + 1,
     overflowX: "hidden"
   },
@@ -74,7 +72,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Container(props) {
   const classes = useStyles();
-  const isSmall = useMediaQuery("(max-width:600px)");
+  const theme = useTheme();
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = React.useState(false);
 
   const toogleDrawer = () => {

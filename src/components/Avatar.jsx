@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     margin: theme.spacing(1, 1),
     alignItems: "center",
-    //transition: theme.transitions.create("margin")
+    transition: theme.transitions.create("margin")
   },
   rootOpen: {
     margin: theme.spacing(3, 3)
