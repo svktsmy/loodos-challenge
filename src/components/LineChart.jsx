@@ -47,7 +47,7 @@ export default function LineChart({ title }) {
       <AreaChart data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
         <XAxis dataKey="name" />
         <YAxis />
-        <CartesianGrid strokeDasharray="4 4" />
+        <CartesianGrid strokeDasharray="2 2" />
         <Tooltip />
         <Area type="monotone" dataKey="uv" animationDuration={200} stroke={orange[400]} fill={orange[400]} />
       </AreaChart>
