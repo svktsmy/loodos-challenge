@@ -34,18 +34,18 @@ const useStyles = makeStyles(theme => ({
   },
   drawer: {
     flexShrink: 0,
-    whiteSpace: "nowrap"
+    whiteSpace: "nowrap",
+    width: drawerWidth,
+    minWidth: "240px"
   },
   drawerOpen: {
     width: drawerWidth,
-    minWidth: "240px",
     transition: theme.transitions.create("width"),
     overflow: "hidden"
   },
   drawerClose: {
     transition: theme.transitions.create("width"),
     width: theme.spacing(7),
-    minWidth: "240px",
     overflow: "hidden"
   },
   toolbar: {
