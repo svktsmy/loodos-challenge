@@ -20,8 +20,6 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import Avatar from "./Avatar";
 
-const drawerWidth = "20%";
-
 const useStyles = makeStyles(theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1

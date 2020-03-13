@@ -12,7 +12,8 @@ import Menu from "./Menu";
 const dataIntervals = [
   { label: "5 Sec.", value: 5000 },
   { label: "15 Sec.", value: 15000 },
-  { label: "45 Sec.", value: 45000 }
+  { label: "45 Sec.", value: 45000 },
+  { label: "5 Min.", value: 60000 * 5 }
 ];
 const dataRanges = [
   { label: "Last 3M", value: 3 },
@@ -41,13 +42,14 @@ const useStyles = makeStyles(theme => ({
 export default function ChartContainer({ title, children, onRefresh }) {
   const classes = useStyles();
 
-  let [delay, setDelay] = useState(dataIntervals[0]);
+  let [delay, setDelay] = useState(dataIntervals[3]);
   let [range, setRange] = useState(dataRanges[0]);
   useInterval(onRefresh, delay.value);
 
   return (
     <Paper className={classes.root} variant="outlined" square>
       <Typography variant="h6">{title}</Typography>
+      <Divider className={classes.divider}></Divider>
       <ResponsiveContainer className={classes.x} width="99%" aspect={1.7}>
         {children}
       </ResponsiveContainer>

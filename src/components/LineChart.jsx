@@ -1,4 +1,4 @@
-import { orange } from "@material-ui/core/colors";
+import { orange, indigo } from "@material-ui/core/colors";
 import React, { useState } from "react";
 import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 import getRandomInt from "../utils/getRandomInt";
@@ -8,19 +8,23 @@ const generateData = () => {
   const data = [
     {
       name: "Page A",
-      uv: getRandomInt(100)
+      uv: getRandomInt(100),
+      xc: getRandomInt(100)
     },
     {
       name: "Page B",
-      uv: getRandomInt(100)
+      uv: getRandomInt(100),
+      xc: getRandomInt(100)
     },
     {
       name: "Page C",
-      uv: getRandomInt(100)
+      uv: getRandomInt(100),
+      xc: getRandomInt(100)
     },
     {
       name: "Page D",
-      uv: getRandomInt(100)
+      uv: getRandomInt(100),
+      xc: getRandomInt(100)
     }
   ];
 
@@ -37,7 +41,8 @@ export default function LineChart({ title }) {
         <YAxis />
         <CartesianGrid strokeDasharray="2 2" />
         <Tooltip />
-        <Area type="monotone" dataKey="uv" animationDuration={200} stroke={orange[400]} fill={orange[400]} />
+        <Area type="monotone" dataKey="uv" animationDuration={200} stroke={indigo[100]} fill={indigo[100]} />
+        <Area type="monotone" dataKey="xc" animationDuration={200} stroke={orange[400]} fill={orange[400]} />
       </AreaChart>
     </ChartContainer>
   );
