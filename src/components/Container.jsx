@@ -35,11 +35,10 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     flexShrink: 0,
     whiteSpace: "nowrap",
-    width: drawerWidth,
-    minWidth: "240px"
+    width: 240
   },
   drawerOpen: {
-    width: drawerWidth,
+    width: 240,
     transition: theme.transitions.create("width"),
     overflow: "hidden"
   },
@@ -52,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar
   },
   content: {
-    flexGrow: 1,
+    flex: 1,
     padding: theme.spacing(2),
     transition: theme.transitions.create("margin"),
     [theme.breakpoints.down("sm")]: {
@@ -60,7 +59,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   contentOpen: {
-    marginLeft: drawerWidth,
+    marginLeft: 240,
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0
     }
