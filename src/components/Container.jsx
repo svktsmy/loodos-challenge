@@ -109,7 +109,7 @@ export default function Container(props) {
           [classes.drawerClose]: !open && !isSmall
         })}
         classes={{
-          paper: clsx({
+          paper: clsx(classes.drawer, {
             [classes.drawerOpen]: open && !isSmall,
             [classes.drawerClose]: !open && !isSmall
           })
