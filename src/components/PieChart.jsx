@@ -8,15 +8,19 @@ const generateData = () => {
   const data = [
     {
       name: "Page A",
-      value: getRandomInt(4000)
+      value: getRandomInt(100)
     },
     {
       name: "Page B",
-      value: getRandomInt(4000)
+      value: getRandomInt(100)
     },
     {
       name: "Page C",
-      value: getRandomInt(4000)
+      value: getRandomInt(100)
+    },
+    {
+      name: "Page D",
+      value: getRandomInt(100)
     }
   ];
 

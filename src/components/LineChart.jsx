@@ -8,31 +8,19 @@ const generateData = () => {
   const data = [
     {
       name: "Page A",
-      uv: getRandomInt(4000)
+      uv: getRandomInt(100)
     },
     {
       name: "Page B",
-      uv: getRandomInt(4000)
+      uv: getRandomInt(100)
     },
     {
       name: "Page C",
-      uv: getRandomInt(4000)
+      uv: getRandomInt(100)
     },
     {
       name: "Page D",
-      uv: getRandomInt(4000)
-    },
-    {
-      name: "Page E",
-      uv: getRandomInt(4000)
-    },
-    {
-      name: "Page F",
-      uv: getRandomInt(4000)
-    },
-    {
-      name: "Page G",
-      uv: getRandomInt(4000)
+      uv: getRandomInt(100)
     }
   ];
 

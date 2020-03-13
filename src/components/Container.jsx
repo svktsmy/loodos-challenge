@@ -17,15 +17,12 @@ import MenuIcon from "@material-ui/icons/Menu";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import clsx from "clsx";
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "./Avatar";
-const drawerWidth = 240;
+
+const drawerWidth = "20%";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "block",
-    overflowX: "hidden"
-  },
   appBar: {
     zIndex: theme.zIndex.drawer + 1
   },
@@ -36,46 +33,40 @@ const useStyles = makeStyles(theme => ({
     display: "none"
   },
   drawer: {
-    width: drawerWidth,
     flexShrink: 0,
     whiteSpace: "nowrap"
   },
   drawerOpen: {
     width: drawerWidth,
-    overflowX: "hidden",
-    transition: theme.transitions.create("width")
+    minWidth: "240px",
+    transition: theme.transitions.create("width"),
+    overflow: "hidden"
   },
   drawerClose: {
     transition: theme.transitions.create("width"),
-    width: theme.spacing(7) + 1,
-    overflowX: "hidden"
+    width: theme.spacing(7),
+    minWidth: "240px",
+    overflow: "hidden"
   },
   toolbar: {
     ...theme.mixins.toolbar
   },
-  spacer: {
-    flex: 1
-  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(2),
-    marginLeft: theme.spacing(7) + 1,
-
+    transition: theme.transitions.create("margin"),
     [theme.breakpoints.down("sm")]: {
-      padding: 0,
-      marginLeft: 0
+      padding: 0
     }
   },
   contentOpen: {
     marginLeft: drawerWidth,
-    transition: theme.transitions.create("margin"),
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0
     }
   },
   contentClose: {
-    transition: theme.transitions.create("margin"),
-    marginLeft: theme.spacing(7) + 1,
+    marginLeft: theme.spacing(7),
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0
     }
@@ -89,7 +80,7 @@ export default function Container(props) {
   const classes = useStyles();
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const toogleDrawer = () => {
     setOpen(!open);
@@ -98,40 +89,36 @@ export default function Container(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar elevation={2} position="fixed" className={classes.appBar}>
+      {/* App Bar */}
+      <AppBar elevation={1} className={classes.appBar}>
         <Toolbar>
           <IconButton color="inherit" aria-label="open drawer" onClick={toogleDrawer} edge="start" className={classes.menuButton}>
             {open ? <MenuOpenIcon /> : <MenuIcon />}
           </IconButton>
           <Typography variant="h6" noWrap>
-            {isSmall ? "Small" : "Large"}
+            Loodos
           </Typography>
         </Toolbar>
       </AppBar>
+      {/* Drawer */}
       <Drawer
         variant={isSmall ? undefined : "permanent"}
         open={open}
         onClose={toogleDrawer}
-        className={
-          isSmall
-            ? classes.drawer
-            : clsx(classes.drawer, {
-                [classes.drawerOpen]: open,
-                [classes.drawerClose]: !open
-              })
-        }
-        classes={
-          isSmall
-            ? { paper: classes.drawer }
-            : {
-                paper: clsx({
-                  [classes.drawerOpen]: open,
-                  [classes.drawerClose]: !open
-                })
-              }
-        }
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open && !isSmall,
+          [classes.drawerClose]: !open && !isSmall
+        })}
+        classes={{
+          paper: clsx({
+            [classes.drawerOpen]: open && !isSmall,
+            [classes.drawerClose]: !open && !isSmall
+          })
+        }}
       >
         <div className={classes.toolbar} />
+        <Avatar open={open}></Avatar>
+        <Divider />
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem button key={text}>
@@ -149,10 +136,8 @@ export default function Container(props) {
             </ListItem>
           ))}
         </List>
-        <div className={classes.spacer}></div>
-        <Divider />
-        <Avatar open={open}></Avatar>
       </Drawer>
+      {/* Content */}
       <div
         className={clsx(classes.content, {
           [classes.contentOpen]: open,
@@ -160,7 +145,6 @@ export default function Container(props) {
         })}
       >
         <div className={classes.toolbar} />
-
         <Paper className={classes.contentContainer} variant="outlined" square>
           {props.children}
         </Paper>
